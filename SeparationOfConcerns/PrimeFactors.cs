@@ -6,6 +6,10 @@ public class PrimeFactors
         var primesUpToNumber = new Dictionary<int, List<int>>();
         foreach (var number in numbers)
         {
+            if (number < 1)
+            {
+                throw new ArgumentException("negative numbers are not supported");
+            }
             primesUpToNumber.Add(number, new List<int>());
             for (var candidate = 2; candidate <= number; candidate++)
             {
