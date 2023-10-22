@@ -2,7 +2,7 @@ public class PrimeFactors
 {
     public static void Factor(List<int> numbers)
     {
-        // first, compute prime numbers up to number
+        // first, compute prime numbers up to each number
         var primesUpToNumber = new Dictionary<int, List<int>>();
         foreach (var number in numbers)
         {
@@ -25,21 +25,38 @@ public class PrimeFactors
             }
         }
 
-        // TODO: this is just debugging code
-        foreach (var number in primesUpToNumber.Keys)
-        {
-            Console.Write($"{number}: ");
-            foreach (var prime in primesUpToNumber[number])
-            {
-                Console.Write($"{prime} ");
-            }
-            Console.WriteLine();
-        }
-
         // second, factorize number by its primes
         foreach (var number in primesUpToNumber.Keys)
         {
             var primes = primesUpToNumber[number];
+            var factors = new List<int>() { };
+            if (primes.Count == 0)
+            {
+                factors.Add(number);
+            }
+            else
+            {
+                var remainder = number;
+                for (var i = 0; i < primes.Count && remainder > 0;)
+                {
+                    var prime = primes[i];
+                    if (remainder % prime == 0)
+                    {
+                        remainder /= primes[i];
+                        factors.Add(prime);
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
+            }
+            Console.Write($"{number}: ");
+            foreach (var factor in factors)
+            {
+                Console.Write($"{factor} ");
+            }
+            Console.WriteLine();
         }
     }
 }
