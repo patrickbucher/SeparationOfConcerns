@@ -5,7 +5,7 @@ is totally devoid of it. The examples are:
 
 1. [Multiplication Table](https://www.mathsisfun.com/tables.html)
 (`SeparationOfConcerns/MultiplicationTable.cs`)
-2. [PrimeFactors](https://www.mathsisfun.com/prime-factorization.html)
+2. [Prime Factors](https://www.mathsisfun.com/prime-factorization.html)
 (`SeparationOfConcerns/PrimeFactors.cs`)
 3. [Monty Hall Problem](https://en.wikipedia.org/wiki/Monty_Hall_problem)
 (`SeparationOfConcerns/MontyHall.cs`)
